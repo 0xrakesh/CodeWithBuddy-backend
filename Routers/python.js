@@ -26,7 +26,7 @@ exports.python = async (questions,input) => {
     try {
         await fs.promises.writeFile(filePath, inputData);
 	    await fs.promises.writeFile(codePath, questions.code);
-        const { stdout, stderr } = await exec(`python3 "${codePath}" < ${filePath}`);
+        const { stdout, stderr } = await exec(`python "${codePath}" < ${filePath}`);
         return stdout.trim();
     } catch (error) {
         return {status:'Compilation error',error:error }
