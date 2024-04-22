@@ -24,6 +24,7 @@ app.use(cors({
 }));
 
 app.post('/playground/run', compiler);
+app.get("/",(req,res) => res.send("Code With Buddy up now"));
 
 
 server.listen(8000, () => {

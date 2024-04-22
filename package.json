@@ -92,11 +92,12 @@
     "uuid": "^9.0.1",
     "vary": "^1.1.2",
     "ws": "^8.11.0",
-    "yallist": "^4.0.0"
+    "yallist": "^4.0.0",
+    "nodemon":"^3.1.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon index.js"
   },
   "author": "0xrakesh",
   "license": "ISC"
