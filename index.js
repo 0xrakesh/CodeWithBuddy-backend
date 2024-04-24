@@ -13,6 +13,8 @@ const io = socketIO(server,{
 const {compiler} = require('./Routers/compiler') 
 
 io.on("connection",(socket) => {
+    console.log("Connect on ",socket.id)
+    socket.emit("connection", socket.id)
     socket.on("send-code",(data) => {
         io.emit("get-code",data)
     })
