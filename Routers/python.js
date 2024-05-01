@@ -14,7 +14,7 @@ Python Program Routes
 exports.python = async (questions,input) => {
 
     let filename = uuid();
-    const filePath = path.join(__dirname, `/${filename}-input`);
+    const filePath = path.join(__dirname, `/userprogram/${filename}-input`);
 
     var inputData;
     if(typeof(input) !==  typeof([]))
@@ -22,7 +22,7 @@ exports.python = async (questions,input) => {
     else
 	  inputData = input.join('\n')+'\n';
 
-   const codePath = path.join(__dirname,`/${filename}.py`);
+   const codePath = path.join(__dirname,`/userprogram/${filename}.py`);
     try {
         await fs.promises.writeFile(filePath, inputData);
 	    await fs.promises.writeFile(codePath, questions.code);

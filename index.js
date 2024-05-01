@@ -13,7 +13,8 @@ const io = socketIO(server,{
 const {compiler} = require('./Routers/compiler') 
 const database = require("./Routers/database")
 const {register, login} = require("./Routers/users");
-const {auth} =require("./Middleware/auth")
+const {auth, authBE} =require("./Middleware/auth")
+const {saveFile, getlist, getFile} = require("./Routers/save")
 
 io.on("connection",(socket) => {
     console.log("ID of the socket ",socket.id)
@@ -47,6 +48,9 @@ app.post("/middleware/auth", auth);
 app.post('/playground/run', compiler);
 app.get("/",(req,res) => res.send("Code With Buddy up now"));
 
+app.post("/files/save", saveFile);
+app.get("/files/get",getlist)
+app.get("/files/get/:fileID",getFile)
 
 app.post("/register", register);
 app.post("/login", login);
